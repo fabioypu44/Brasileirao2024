@@ -6,9 +6,6 @@ from selenium.webdriver.chrome.options import Options
 driver = webdriver.Chrome()
 # Inicializa o driver do Selenium (neste caso, para o Chrome)
 
-options = Options()
-options.headless = True
-options.add_argument("--window-size=1920,1200")
 
 # Define a URL da página inicial
 url = 'https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a/2024'
