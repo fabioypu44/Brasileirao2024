@@ -6,9 +6,6 @@ from selenium.webdriver.chrome.options import Options
 driver = webdriver.Chrome()
 # Inicializa o driver do Selenium (neste caso, para o Chrome)
 
-options = Options()
-options.headless = True
-options.add_argument("--window-size=1920,1200")
 
 # Define a URL da página inicial
 url = 'https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a/2024'
@@ -20,16 +17,17 @@ driver.get(url)
 def capturar_dados():
     # Encontra os elefind_elementsmentos que contêm os dados desejados
     produtos = driver.find_elements(By.CLASS_NAME, 'expand-trigger')
+    sports_headers = driver.find_element()('text-center')
 
     for produto in produtos:
         nome = produto.find_element(By.CLASS_NAME, 'hidden-xs').text
         ponto = produto.find_element(By.XPATH, 'th[1]').text
         Jogo = produto.find_element(By.XPATH, 'td[2]').text
-
+        Vitoria = produto.find_element(By.XPATH, 'td[3]').text
+        Estatistica =produto.find_element(By.XPATH, 'td[5]').text
 
     #   nome = nome.split(' - ',0)
-        print("Time: "+nome+" Ponto: "+ponto)
-
+        print("Time: "+nome+" Ponto: "+ponto+" Jogos: "+Jogo+" Vitoria: "+Vitoria+" Porcentagem: "+Estatistica+"%")
 # Captura dados da primeira página
 capturar_dados()
 
